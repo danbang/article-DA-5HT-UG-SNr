@@ -2,7 +2,7 @@
 
 This repository contains data and code supporting:
 
-<a href="https://www.cell.com/current-biology/fulltext/S0960-9822(23)01355-6">Batten*, Bang*, Kopell* et al. (2023) “Dopamine and serotonin in human substantia nigra track social context and value signals during economic exchange” Journal</a>
+<a href="https://www.cell.com/current-biology/fulltext/S0960-9822(23)01355-6">Batten*, Bang*, Kopell* et al. (2024) “Dopamine and serotonin in human substantia nigra track social context and value signals during economic exchange” Nature Human Behaviour</a>
 
 Figure_X.m scripts will generate the specified plots.
 
