@@ -8,7 +8,7 @@
 %
 % Written in MATLAB 2023a
 %
-% Dan Bang danbang@cfin.au.dk 2024
+% Dan Bang danbang@cfin.au.dk & Seth R. Batten srbatten10@vt.edu 2024
 
 %% -----------------------------------------------------------------------
 %% PREPARATION
