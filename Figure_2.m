@@ -279,7 +279,7 @@ for i_sbj= 1:n_sbj
         lmedatG.rt.human=   [lmedatG.rt.human data.human(idx)];
         lmedatG.rt.value=   [lmedatG.rt.value zscore(data.value(idx))];
         lmedatG.rt.accept=  [lmedatG.rt.accept data.accept(idx)];
-        lmedatG.rt.rt=      [lmedatG.rt.rt zscore(log(data.rt(idx)))];
+        lmedatG.rt.rt=      [lmedatG.rt.rt zscore(data.rt(idx))];
         % Emotion
         idx= find(~data.outlier & ~isnan(data.emotion));
         lmedatG.emo.subject= [lmedatG.emo.subject data.subject(idx)];
