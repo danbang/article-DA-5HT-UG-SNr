@@ -1,0 +1,141 @@
+Visual variables 
+
+Instruction
+title_loc =
+txt_loc =
+ins_loc =
+
+Task
+avatar_size = (0.25,0.25)
+txt_loc = [0,-0.25]
+
+front size
+txt_size = 0.07
+title_size = 0.1
+
+
+Offer_present txt location
+dollar_Yloc = [-0.50,0.2]
+dollar_Ploc = [0.50,0.2]
+you_loc = [-0.50,0.3]
+partner_loc = [0.50,0.3]
+acc_loc = [-0.2,-0.2]
+rej_loc = [0.2, -0.2]
+
+image_Yloc = [-0.50,0]
+image_Ploc = [0.50,0]
+
+
+prep code
+import numpy as np
+import random
+
+txt_size = 0.07
+title_size = 0.1
+
+image_Yloc = [-0.50,-0.2]
+image_Ploc = [0.50,-0.2]
+
+mu, sigma = 5, 1.2
+#[3.81681339,4.96410009,5.78134021]
+offer = np.random.normal(mu, sigma, 3).tolist()
+#inControl = [round(num) for num in offer]
+inControl = [6,5,6]
+random.shuffle(inControl)
+print(inControl)
+
+
+begin routine
+avatar_prop = name + " proposes"
+avatar_final = name + " receives:"
+
+offerY = inControl[offerIndex]
+offerO = 20-inControl[offerIndex]
+
+dollarY = '$ ' + str(offerY)
+dollarO = '$ ' + str(offerO)
+
+dollarImageY = 'cash\d' + str(offerY) + '.png'
+dollarImageO = 'cash\d' + str(offerO) + '.png'
+
+thisExp.addData('offer you', offerY)
+thisExp.addData('offer other', offerO)
+
+inControl_change = [0,0,0,0,0,0,0,0,0,0,
+                    1,1,1,1,1,1,1,1,1,1,
+                    2,2,2,2,2,2,2,2,2,2]
+random.shuffle(inControl_change)
+
+
+
+
+condition test
+avatar_prop = name + " proposes"
+avatar_final = name + " receives:"
+
+#offerY = inControl[offerIndex]
+#offerO = 20-inControl[offerIndex]
+#offerHis = offerY
+#offerChange = inControl_change[offerIndex]
+#
+#thisExp.addData('condition', cond_list[teamIndex])
+#thisExp.addData('offer change', 0-offerChange)
+
+if condition == 1: #in control
+    if resp == 1: # #accepted in control, decrease offer
+#        offerY = inControl[offerIndex]
+#        offerO = 20-inControl[offerIndex]
+#        offerChange = inControl_change[offerIndex]
+#        
+#        newOfferY = offerY - offerChange
+#        offerHis = newOfferY
+        dollarY = '$ ' + str(newOfferY)
+        dollarO = "$ " + str(20-newOfferY)
+        
+        thisExp.addData('condition', cond_list[teamIndex])
+        thisExp.addData('offer change', 0-offerChange)
+    elif resp == 0: # #rejected in control, increase offer
+#        offerY = inControl[offerIndex]
+#        offerO = 20-inControl[offerIndex]
+#        offerChange = inControl_change[offerIndex]
+#        
+#        newOfferY = offerY + offerChange
+#        offerHis = newOfferY
+        dollarY = '$ ' + str(newOfferY)
+        dollarO = "$ " + str(20-newOfferY)
+        
+        thisExp.addData('condition', cond_list[teamIndex])
+        thisExp.addData('offer change', offerChange)
+    elif resp == 3:
+        offerY = inControl[offerIndex]
+        offerO = 20-inControl[offerIndex]
+        offerHis = offerY
+        offerChange = inControl_change[offerIndex]
+
+        thisExp.addData('condition', cond_list[teamIndex])
+        thisExp.addData('offer change', 0-offerChange)
+elif condition == 2: #no control
+    if resp == 1: #accepted no control
+        dollarY = '$ ' + str(offerY)
+        dollarO = "$ " + str(20-offerY)
+        
+        thisExp.addData('condition', cond_list[teamIndex])
+        thisExp.addData('offer change', 0)
+    elif resp == 0: #rejected mp control
+        dollarY = "$ 0"
+        dollarO = "$ 0"
+        
+        thisExp.addData('condition', cond_list[teamIndex])
+        thisExp.addData('offer change', 0)
+    elif resp ==3:
+        offerY = noControl[offerIndex]
+        offerO = 20-noControl[offerIndex]
+
+dollarY = '$ ' + str(offerY)
+dollarO = '$ ' + str(offerO)
+
+dollarImageY = 'cash\d' + str(offerY) + '.png'
+dollarImageO = 'cash\d' + str(offerO) + '.png'
+
+thisExp.addData('offer you', offerY)
+thisExp.addData('offer other', offerO)

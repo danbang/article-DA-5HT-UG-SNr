@@ -1,0 +1,12 @@
+trigger time implementation 
+before experiment 
+trigger_list = []
+
+each frame
+keys = kb.getKeys(['t'])
+if 't' in keys:
+    time = core.getTime()
+    trigger_list.append(time)
+
+end routine 
+thisExp.addData('trigger down', trigger_list)
